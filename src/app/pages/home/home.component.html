@@ -1,0 +1,79 @@
+<div class="container">
+    <app-header></app-header>
+    <div class="row align-items-center">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+            <!-- Bg -->
+            <div class="pt-20 rounded-top" style="background:
+          url(https://bootdey.com/image/480x180/191970/ffffff) no-repeat;
+          background-size: cover;">
+            </div>
+            <div class="card rounded-bottom smooth-shadow-sm pt-3">
+                <div class="d-flex align-items-center justify-content-between
+            pt-4 pb-6 px-4 mb-3">
+                    <div class="d-flex align-items-center">
+                        <div class="avatar-xxl avatar-indicators avatar-online me-2
+                position-relative d-flex justify-content-end
+                align-items-end mt-n10">
+                           <button class="btn">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" class="avatar-xxl
+                                rounded-circle border border-2 " alt="Image" style="width: 100px;height: 100px;">
+                           </button>
+                        </div>
+                        <div class="lh-1">
+                            <h2 class="mb-0">{{userName}}</h2>
+                            <input class="form-control" disabled [value]="'Your stream key: ' + streamKey">
+                        </div>
+                    </div>
+                    <div class="">
+                        <div>
+                            <a class="btn btn-secondary d-none d-md-block mb-3" routerLink="/initStream">Start Streaming</a>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-secondary d-none d-md-block" data-bs-toggle="modal" data-bs-target="#exampleModal">Join</button>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- <ul class="nav nav-lt-tab px-4" id="pills-tab" role="tablist">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"> Followers </a>
+                    </li>
+
+                </ul> -->
+            </div>
+        </div>
+    </div>
+    <div class="py-6">
+        <div class="row">
+            <div class="col-lg-3 col-12" *ngFor="let video of listVideo">
+                <a [routerLink]="['/watch']" [queryParams]="{ videoId: video.id }" class="btn">
+                    <div class="card mb-5 rounded-3">
+                        <div style="width: 280px; height: 180px;">
+                            <!-- src={{video.thumbnail}} -->
+                            <img src={{video.thumbnail}} alt="Image"
+                                class="img-fluid rounded-top" style="width: 480px; height: 180px;">
+                            <!-- <img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="Image"
+                                class="img-fluid rounded-top" style="width: 480px; height: 180px;"> -->
+                        </div>
+                        <!-- card body -->
+                        <div class="card-body">
+                            <!-- Title -->
+                            <div *ngIf="video.title.length < 20; then title else shortTitle"></div>
+                            <ng-template #title><h4 class="mb-1">{{video.title}}</h4></ng-template>
+                            <ng-template #shortTitle><h4 class="mb-1">{{video.title.substring(0,18)}} ...</h4></ng-template>
+                            <p>{{userName}}</p>
+                            
+                            <span class="d-inline-block w-25">{{video.view}} view</span>
+                            <span class="d-inline-block w-25"></span>
+                            <span class="d-inline-block w-50">{{video.time | date: 'dd/MM/yyyy'}}</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <app-join></app-join>    

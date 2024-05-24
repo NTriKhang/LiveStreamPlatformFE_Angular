@@ -1,0 +1,47 @@
+<!-- <app-header></app-header> -->
+<div class="container bg-white w-50" style="border: 1px solid; border-radius: 8px;">
+    <form class="p-4" (ngSubmit)="onPublic(InitStreamForm)" #InitStreamForm="ngForm" enctype="multipart/form-data">
+        <p class="" style="color: rgb(61, 36, 114); font-weight: 700;">Step 1: fill this information</p>
+        <div class="mb-4">
+            <div data-mdb-input-init class="form-outline">
+                <label class="form-label" for="form6Example1">Title</label>
+                <input type="text" id="form6Example1" class="form-control" placeholder="Title" name="Title" ngModel/>
+          </div>
+        </div>
+        <div class="mb-4">
+            <div data-mdb-input-init class="form-outline">
+                <label class="form-label" for="form6Example1">Desciprtion</label>
+                <textarea ngModel name="Desciprtion" class="form-control" rows="6"></textarea>
+          </div>
+        </div>
+        <div class="mb-4">
+            <div data-mdb-input-init class="form-outline">
+                <label class="form-label" for="form6Example1">Thumbnail</label>
+                <input type="file" id="form6Example1" class="form-control" placeholder="Title" 
+                    accept="image/png, image/gif, image/jpeg" name="Thumbnail" ngModel (change)="getFiles($event)"  />
+            </div>
+        </div>
+        <!-- <p style="color: rgb(61, 36, 114); font-weight: 700;">Step 2: click to generate your stream key</p>
+        <div class="mb-4">
+            <div data-mdb-input-init class="form-outline row">
+                <label class="form-label" for="form6Example1">Key</label>
+                <div class="col-8">
+                    <input type="text" id="form6Example1" class="form-control" placeholder="Key" name="StreamKey" ngModel disabled [value]="StreamKey"/>
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-secondary" type="button" (click)="GenerateKey(); generateKeyBtn.disabled = true" #generateKeyBtn>Generate key</button>
+                </div>
+          </div>
+        </div> -->
+        <p style="color: rgb(61, 36, 114); font-weight: 700;">Step 3: Stream on obs with this key</p>
+        <!-- Submit button -->
+        <p style="color: rgb(61, 36, 114); font-weight: 700;" [hidden]="Countdown >= 15">wait for <span>{{Countdown}}s</span></p>
+        <div class="conntainer d-flex justify-content-center mt-4">
+            <video id="video" #video style="width: 700px;" controls></video>
+
+        </div>
+        <div>
+            <button class="btn btn-primary mt-3" type="submit">Public</button>
+        </div>
+      </form>
+</div>

@@ -1,0 +1,27 @@
+<div class="container bg-white w-25 mt-5 p-4" style="border: 4px solid; border-radius: 8px;">
+  <div class="d-flex justify-content-center">
+    <form (ngSubmit)="onSignUp(SignUpForm)" #SignUpForm="ngForm">
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <input type="text" id="form2Example1" class="form-control" name="UserName" ngModel />
+        <label class="form-label" for="form2Example1">User name</label>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input type="password" id="form2Example2" class="form-control" ngModel name="Password" />
+        <label class="form-label" for="form2Example2">Password</label>
+      </div>
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input type="password" id="form2Example2" class="form-control" ngModel name="ConfirmPassword" />
+        <label class="form-label" for="form2Example3">Confirm Password</label>
+      </div>
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">Confirm</button>
+      <div class="text-center">
+        <p>Go back? <a routerLink="/login">Login</a></p>
+      </div>
+    </form>
+  </div>
+</div>

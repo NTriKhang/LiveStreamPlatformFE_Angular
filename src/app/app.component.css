@@ -1,0 +1,11 @@
+html
+{
+ margin:0px;
+ height:100%;
+ width:100%;
+ background-color: rgb(61, 36, 114); 
+ -webkit-background-size:cover;
+ -o-background-size:cover;
+ -moz-background-size:cover;
+ background-size:cover;
+}
