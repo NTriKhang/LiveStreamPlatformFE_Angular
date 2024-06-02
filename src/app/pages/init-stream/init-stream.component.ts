@@ -11,7 +11,7 @@ import { LocalStorageKey } from '../../core/constant/LocalStorageKey';
 import { SignalRService } from '../../core/service/signal-r.service';
 import { BitrateOptions, IMediaElement, VgMediaDirective } from '@videogular/ngx-videogular/core';
 import Swal from 'sweetalert2';
-import { Room } from '../../core/models/room';
+import { Room } from '../../core/models/Room';
 
 @Component({
   selector: 'app-init-stream',

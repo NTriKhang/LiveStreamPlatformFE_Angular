@@ -1,6 +1,7 @@
-import { Video } from "./video";
+import { Video } from "./Video";
 
 export class Room {
+    _id?: string;
     roomKey: string;
     status: string;
     streamKey: string;

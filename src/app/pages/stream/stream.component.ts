@@ -4,7 +4,7 @@ import { HlsService } from '../../core/service/hls.service';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../environments/environment.development';
 import { LocalStorageKey } from '../../core/constant/LocalStorageKey';
-import { Room } from '../../core/models/room';
+import { Room } from '../../core/models/Room';
 
 @Component({
   selector: 'app-stream',

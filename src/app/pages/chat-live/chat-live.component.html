@@ -2,14 +2,14 @@
     <div class="card bg-dark" style="max-height:500px; height: 500px;">
         <div class="card-body h-75">
             <div class="overflow-auto h-100" #chat_box>
-                <div *ngFor="let message of chatMessages">
+                <div *ngFor="let message of chatMessages_v2">
                     <div class="d-inline" style="height: 40px;">
                         <div class="row mb-4">
                             <div class="col-2">
-                                <img src="{{ message.senderAvatar }}" style="border-radius: 50%; width: 40px;" alt="">
+                                <img src="{{ message.userAvatar }}" style="border-radius: 50%; width: 40px;" alt="">
                             </div>
                             <div class="col-10 text-white">
-                                <div><strong>{{ message.senderName }}</strong><span style="opacity: 0.6;"> - {{ message.timestamp |  date: 'dd/MM/yyyy HH:mm' }}</span></div>
+                                <div><strong>{{ message.userName }}</strong><span style="opacity: 0.6;"> - {{ message.createdAt |  date: 'dd/MM/yyyy HH:mm' }}</span></div>
                                 <div>
                                     <span>{{ message.content }}</span>
                                 </div>
@@ -24,10 +24,13 @@
             <form class="form" #chatLive="ngForm">
                 <div class="row">
                     <div class="col-10">
-                        <input name="chatInput" ngModel class="form-control text-white bg-secondary" placeholder="Say hi" style="border: none;">
+                        <input name="chatInput" ngModel required class="form-control text-white bg-secondary"
+                         placeholder="Say hi" style="border: none;" #chatInput="ngModel">
                     </div>
                     <div class="col-2">
-                        <button type="submit" class="btn btn-outline-light" style="border: #B197FC; width: -webkit-fill-available;"><i class="fa-solid fa-paper-plane" style="color: #B197FC;"></i></button>
+                        <button type="button" (click)="onSendChat(chatLive)" class="btn btn-outline-light" style="border: #B197FC; width: -webkit-fill-available;" [disabled]="!chatInput.valid">
+                            <i class="fa-solid fa-paper-plane" style="color: #B197FC;"></i>
+                        </button>
                     </div>
                 </div>
             </form>

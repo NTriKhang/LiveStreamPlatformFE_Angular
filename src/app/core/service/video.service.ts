@@ -6,8 +6,8 @@ import { APIEndpoint } from '../constant/APIEndpoint';
 import { response } from 'express';
 import { error } from 'console';
 import { env } from 'process';
-import { Room } from '../models/room';
-import { Video } from '../models/video';
+import { Room } from '../models/Room';
+import { Video } from '../models/Video';
 
 @Injectable({
   providedIn: 'root'

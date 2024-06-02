@@ -17,12 +17,15 @@ export class SignalRService {
   constructor(private httpClient: HttpClient, private videoService: VideoService) {
   }
   public startConnection = () => {
+
     this.hubConnection = new signalR.HubConnectionBuilder()
       .withUrl(environment.hub_url)
       .withAutomaticReconnect()
       .build();
+
     this.onStreamingListener();
     this.onStopStreamingListener();
+    
     this.hubConnection.start().then(() => {
       console.log("Connected to signalR hub")
     }

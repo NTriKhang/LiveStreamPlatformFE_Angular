@@ -3,7 +3,7 @@ import { Observable, catchError, map, of, throwError } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { APIEndpoint } from '../constant/APIEndpoint';
 import { HttpClient } from '@angular/common/http';
-import { Room } from '../models/room';
+import { Room } from '../models/Room';
 
 @Injectable({
   providedIn: 'root'

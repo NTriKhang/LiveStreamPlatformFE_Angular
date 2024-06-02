@@ -1,9 +1,10 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Room } from '../../core/models/room';
-import { Video } from '../../core/models/video';
+import { Room } from '../../core/models/Room';
+import { Video } from '../../core/models/Video';
 import { HlsService } from '../../core/service/hls.service';
 import { VideoService } from '../../core/service/video.service';
+import { ChatliveService } from '../../core/service/chatlive.service';
 
 @Component({
   selector: 'app-watch',
@@ -11,6 +12,7 @@ import { VideoService } from '../../core/service/video.service';
   styleUrl: './watch.component.css'
 })
 export class WatchComponent implements AfterViewInit {
+  
   watchStateTemplate: string = "rewatch"
   @ViewChild("videoElement") videoElement: ElementRef
 
@@ -25,9 +27,7 @@ export class WatchComponent implements AfterViewInit {
     }
     else if(this.watchStateTemplate === 'rewatch'){
       this.hlsService.initHlsVideo(`https://d1qbtoot6tfric.cloudfront.net/${this.room.video.id}/index.m3u8`, this.videoElement)
-      // this.hlsService.initHlsVideo("http://localhost:8888/hls/ZCpWgqIXsmLGTf0I.m3u8", this.videoElement)
-      //this.videoElement.nativeElement.src = "https://d9935rfqmx8z.cloudfront.net/66485d0545341f19d03bae6c/ZCpWgqIXsmLGTf0I.m3u8"
-      //this.videoElement.nativeElement.load()
+  
     }
   }
   ngOnInit() {
@@ -39,8 +39,9 @@ export class WatchComponent implements AfterViewInit {
         if (passedObject !== undefined) {
           this.watchStateTemplate = "live"
           this.room = passedObject
+          console.log(this.room)
         }
-        else{
+        else {
           alert("No video available")
         }
       }
@@ -52,6 +53,7 @@ export class WatchComponent implements AfterViewInit {
           },
           err => {
             alert("Can't get video")
+            console.log(err)
           }
         )
       }

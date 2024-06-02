@@ -52,10 +52,10 @@ export class HlsService {
       );
     });
     this.hls.on(Hls.Events.ERROR, function (event, data) {
-      console.log(data)
+      //console.log(data)
     });
     this.hls.on(Hls.Events.BUFFER_EOS, function(event){
-      console.log("Streaming end");
+      //console.log("Streaming end");
     })
     this.hls.loadSource(videoPath);
 
